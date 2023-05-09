@@ -7,6 +7,10 @@ const args = minimist(process.argv.slice(2));
 const port = args.port || 5000;
 const app = express();
 
-app.length('*', (req, res) => {
+app.get('/app', (req, res) => {
+    res.status(200).send("200 OK");
+});
+
+app.get('*', (req, res) => {
     res.status(404).send('404 NOT FOUND');
-})
+});
