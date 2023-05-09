@@ -11,6 +11,22 @@ app.get('/app', (req, res) => {
     res.status(200).send("200 OK");
 });
 
+app.get('/app/rps', (req, res) => {
+    res.status(200).send(rps());
+});
+
+app.get('/app/rpsls', (req, res) => {
+    res.status(200).send(rpsls());
+});
+
+app.get('/app/rps/play', (req, res) => {
+    res.status(200).send(rps(req.query.shot));
+});
+
+app.get('/app/rpsls/play', (req, res) => {
+    res.status(200).send(rpsls(req.query.shot));
+});
+
 app.get('*', (req, res) => {
     res.status(404).send('404 NOT FOUND');
 });
